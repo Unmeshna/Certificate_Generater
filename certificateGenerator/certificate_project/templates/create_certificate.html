@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Roboto Mono">
+    <title>Document</title>
+    <style>
+        html,body{
+            padding: 0;
+            margin: 0;
+            background-color: rgb(192, 200, 221);
+        }
+        .menu a{
+            text-decoration: none;
+            color: aliceblue;
+        }
+        .menu a:hover{
+            color: deeppink;
+        }
+        .Auth a{
+            color:aliceblue;
+            text-decoration: none;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <nav style="width:100%;height:fit-content; background-color: rgb(15, 19, 29); display:flex;justify-content:space-between; align-items: center; color: aliceblue; box-shadow:  -1px -3px 20px 0px #000;;">
+        <div style="font-size: large;">
+            <h1 style="margin-left: 20px;">Generate Certificate</h1>
+        </div>
+        <div class="menu">
+            <ul style=" list-style: none; display: flex; align-items:center; gap:25px; font-size: 18px; font-family:'Roboto Mono','serif';">
+                <li><a href="#">Home</a></li>
+                <li><a href="{% url 'create_certificate'%}">Create</a></li>
+                <li><a href="{% url 'verify_certificate' %}">Verify</a></li>
+                <li><a href="#">Customize</a></li>
+            </ul>
+        </div>
+        <div class="Auth">
+            <ul style="display: flex; list-style: none; gap: 10px; margin-right: 20px; font-size: 20px;">
+                <li  style=" font-weight: 700;"><a href="#">Login</a></li>
+                <li style=" font-weight: 700;"><a href="#">SignUp</a></li>            
+            </ul>
+            
+        </div>
+    </nav>
+    <center> <h1>Fill details</h1></center>
+    <section style="display:flex; justify-content: center;" >
+        
+    <form method="post" style="width: 300px;  padding-left: 100px; padding-top: 30px; padding-bottom: 30px; height: fit-content;  margin-top: 10px; border-width: 2px; box-shadow: 2px 4px 20px 0px black;;font-size: 18px; font-family: 'Georgia'; background-color:rgb(154, 155, 167);">
+        {% csrf_token %}
+        <label for="name">Name:</label><br>
+        <input style="border:#242121; border-radius: 5px;"type="text" id="name" name="name" required>
+        <br><br>
+        <label for="date">Date:</label><br>
+        <input style="border:#242121; border-radius: 5px;" type="date" id="date" name="date" required>
+        <br><br>
+        <label for="description">Subtitle:</label>
+        <br>
+        <textarea style="border:#242121; border-radius: 5px;" type="text" id="description" name="description" required></textarea>
+        <br><br>
+        <label for="unique_identifier">Unique Identifier:</label>
+        <input style="border:#242121; border-radius: 5px;" type="text" id="unique_identifier" name="unique_identifier" required>
+        <br><br>
+        <label for="content">Reason:</label>
+        <textarea style="border:#242121; border-radius: 5px;" id="content" name="content" required></textarea>
+        <br><br>
+        <button type="submit" style="background-color:rgb(19, 19, 22);  color:aliceblue;box-shadow: 2px 2px 5px black; width:fit-content; height: 40px; border-radius: 5px; border-style: none;">Create Certificate</button>
+    </form>
+    </section>
+</body>
+</html>

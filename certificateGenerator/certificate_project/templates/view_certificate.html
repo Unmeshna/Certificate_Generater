@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type='text/css'>
+        body, html {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            color: black;
+            display: table;
+            font-family: Georgia, serif;
+            font-size: 24px;
+            text-align: center;
+        }
+        .container {
+            border: 20px solid tan;
+            width: 750px;
+            height: 563px;
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .logo {
+            color: tan;
+            margin-top: 80px;
+        }
+
+        .marquee {
+            color: tan;
+            font-size: 48px;
+            margin: 20px;
+        }
+        .assignment {
+            margin: 20px;
+        }
+        .person {
+            border-bottom: 2px solid black;
+            font-size: 32px;
+            font-style: italic;
+            margin: 20px auto;
+            width: 400px;
+        }
+        .reason {
+            margin: 20px;
+        }
+    </style>
+</head>
+</head>
+<body>
+    <div class="container">
+        <div style="display: flex; justify-content: left; color: rgb(100, 100, 100);">
+            {{ certificate.unique_identifier }}
+        </div>
+        <div class="logo">
+            An Organization
+        </div>
+
+        <div class="marquee">
+            {{certificate.description}}
+        </div>
+
+        <div class="assignment">
+            This certificate is presented to
+        </div>
+
+        <div class="person">
+            {{certificate.name}}
+        </div>
+
+        <div class="reason">
+            {{certificate.content}}
+        </div>
+        <div style="margin-bottom: 100px; ">
+            on<br>
+          {{ certificate.date }}
+        </div>
+        <div style="font-size: small; margin-bottom: 0px;">
+            <p>Certificate Id:{{ certificate_hash }}</p>
+        </div>
+    </div>
+   <p>Save certificate id and unique_identifier number(top left) for verification</p>
+<!-- <h1>{{ certificate.name }}</h1>
+<p>Date: {{ certificate.date }}</p>
+<p>Description: {{ certificate.description }}</p>
+<p>Unique Identifier: {{ certificate.unique_identifier }}</p>
+<p>Content: {{ certificate.content }}</p>
+<p>HashId:{{ certificate_hash }}</p>-->
+<h2>
+    <a href="{% url 'generate_pdf' certificate_id=certificate.id %}" target="_blank">Download PDF</a>
+    </h2> 
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Roboto Mono">
+    <!-- <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family Ysabeau Infant"> -->
+    <title>Document</title>
+    <style>
+        html,body{
+            padding: 0;
+            margin: 0;
+            background-color: rgb(192, 200, 221);
+        }
+        .menu a{
+            text-decoration: none;
+            color: aliceblue;
+        }
+        .menu a:hover{
+            color: deeppink;
+        }
+        .Auth a{
+            color:aliceblue;
+            text-decoration: none;
+        }
+        
+    </style>
+</head>
+<body>
+    <nav style="width:100%;height:fit-content; background-color: rgb(15, 19, 29); display:flex;justify-content:space-between; align-items: center; color: aliceblue; box-shadow:  -1px -3px 20px 0px #000;;">
+        <div style="font-size: large;">
+            <h1 style="margin-left: 20px;">Generate Certificate</h1>
+        </div>
+        <div class="menu">
+            <ul style=" list-style: none; display: flex; align-items:center; gap:25px; font-size: 18px; font-family:'Roboto Mono','serif';">
+                <li><a href="#">Home</a></li>
+                <li><a href="{% url 'create_certificate'%}">Create</a></li>
+                <li><a href="{% url 'verify_certificate' %}">Verify</a></li>
+                <li><a href="#">Customize</a></li>
+            </ul>
+        </div>
+        <div class="Auth">
+            <ul style="display: flex; list-style: none; gap: 10px; margin-right: 20px; font-size: 20px;">
+                <li  style=" font-weight: 700;"><a href="#">Login</a></li>
+                <li style=" font-weight: 700;"><a href="#">SignUp</a></li>            
+            </ul>
+            
+        </div>
+    </nav>
+    <div >
+        <center>
+           <h1 style="font-family: Ysabeau Infant; font-weight: 1000; font-size: 50px;">Create Online Certificate</h1>
+        <center>
+            <button style="background-color: cadetblue; width: fit-content; height: 40px; border-radius: 5px; border-style: none;"> <a  style="text-decoration: none; color: aliceblue; background-color: cadetblue;" href="{% url 'create_certificate' %}">Create certificate Now</a></button>
+    </div>
+</body>
+</html>

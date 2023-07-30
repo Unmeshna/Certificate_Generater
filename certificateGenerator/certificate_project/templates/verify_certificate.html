@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Certificate Verification Form -->
+<form method="post">
+    {% csrf_token %}
+    <label for="unique_identifier">Enter Certificate Identifier:</label>
+    <input type="text" id="unique_identifier" name="unique_identifier">
+    <label for="hash">Enter Hash:</label>
+    <input type="text" id="hash" name="hash">
+    <input type="submit" value="Verify Certificate">
+</form>
+
+</body>
+</html>
